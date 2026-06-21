@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f5f7;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-wrapper {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            background: linear-gradient(145deg, #eef0f3 0%, #ffffff 100%);
+            padding: 3.2rem 2.5rem 2.8rem;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.6);
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1e2a3a;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero h1 small {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #5f6c7e;
+            display: block;
+            margin-top: 0.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .hero .tagline {
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+            color: #3b4a5e;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(2px);
+            display: inline-block;
+            padding: 0.4rem 1.8rem;
+            border-radius: 60px;
+            border: 1px solid #d9dee6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e6ed;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 28px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            border-bottom: 2px solid #eef1f5;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.2rem;
+            color: #1e2a3a;
+            letter-spacing: -0.01em;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.4rem 0 0.6rem;
+            color: #2f4056;
+        }
+
+        .card p {
+            margin-bottom: 1rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul {
+            padding-left: 1.4rem;
+            margin: 0.8rem 0 1.2rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.4rem;
+            list-style-type: disc;
+        }
+
+        .inset-note {
+            background: #f8f9fc;
+            border-left: 4px solid #b2bed8;
+            padding: 1rem 1.4rem;
+            border-radius: 12px;
+            margin: 1.2rem 0;
+            font-size: 0.95rem;
+            color: #2f4056;
+        }
+
+        /* 背景说明区域 */
+        .background-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .background-grid .card {
+            flex: 1 1 280px;
+            margin-bottom: 0;
+        }
+
+        /* 页尾 */
+        .footer-access {
+            margin-top: 2.2rem;
+            padding: 2rem 2.2rem;
+            background: #eaedf2;
+            border-radius: 28px;
+            border: 1px solid #d5dbe4;
+            text-align: center;
+            box-shadow: inset 0 1px 3px rgba(255,255,255,0.8), 0 6px 12px rgba(0,0,0,0.02);
+        }
+
+        .footer-access p {
+            font-size: 1.05rem;
+            color: #2a3a4e;
+            margin: 0.4rem 0;
+        }
+
+        .footer-access .tiny-meta {
+            color: #6b7a8e;
+            font-size: 0.9rem;
+            margin-top: 0.8rem;
+            border-top: 1px solid #d0d6e0;
+            padding-top: 0.8rem;
+        }
+
+        a {
+            color: #1f5b8e;
+            text-decoration: none;
+            border-bottom: 1px dotted #a0b8d0;
+            font-weight: 500;
+            transition: border-bottom 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #0b3d5e;
+            border-bottom: 1px solid #1f5b8e;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body { padding: 1.2rem 0.8rem; }
+            .hero { padding: 2rem 1.2rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .card { padding: 1.5rem 1.2rem; }
+            .footer-access { padding: 1.5rem 1rem; }
+            .background-grid { gap: 1.2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero .tagline { font-size: 0.95rem; padding: 0.3rem 1rem; }
+            .card h2 { font-size: 1.35rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+        <h1>
+            爱游戏
+            <small>· 再读 · 收藏 · 持续关注 ·</small>
+        </h1>
+        <div class="tagline">杂志专题 · 游戏文化观察</div>
+    </div>
+
+    <!-- 背景说明：用两栏卡片呈现“为什么再次回来” -->
+    <div class="background-grid">
+        <div class="card">
+            <h2>从一次访问到习惯</h2>
+            <p>很多人第一次来到 <a href="https://webportal-i-game.com.cn">爱游戏</a>，是因为一篇评测、一份清单或一则资讯。但真正让它留在收藏夹里的，是那种「每次打开都有新发现」的踏实感。没有浮夸的弹窗，没有重复的推送，只有缓慢积累的游戏笔记、背景考据和偶尔的开发者访谈——像一本安静更新的数字杂志，适合在周末午后慢慢翻。</p>
+            <p>这里的更新节奏不算快，但每一篇都经过整理：从像素游戏的开发轶事，到冷门模拟器的配置指南，内容切口小而具体，读完后往往能留下一点印象。这也是很多人愿意再次点开它的原因——不打扰，但有内容。</p>
+        </div>
+        <div class="card">
+            <h2>收藏的理由</h2>
+            <p>把 <a href="https://webportal-i-game.com.cn">爱游戏</a> 放进浏览器书签，或者保存到笔记软件里，是一种很自然的动作。因为它的文章结构清晰，引用来源明确，像是有人认真整理过的参考资料。无论是想回顾某篇关于 Roguelike 地图生成的分析，还是查找某个经典 RPG 的剧情时间线，回到这里总能找到一份条理分明的记录。</p>
+            <p>收藏的本质是「以后还想看」。而持续关注一个站点，往往是因为它提供了一种稳定的信息质感——不追求热点，更在意选题的耐读性。这也是我们觉得值得把它留在手边的理由。</p>
+        </div>
+    </div>
+
+    <!-- 三段自然介绍：从多个角度展开“持续关注” -->
+    <div class="card">
+        <h2>持续关注·三个切面</h2>
+        <div class="inset-note">
+            以下内容来自对 <a href="https://webportal-i-game.com.cn">爱游戏</a> 近期内容的观察与整理，不代表官方立场，只作为一份阅读笔记。
+        </div>
+
+        <h3>① 选题的「小」与「深」</h3>
+        <p>相比于泛泛谈论「游戏行业趋势」，这里的文章更倾向于拆解具体作品的一个细节：比如某款生存游戏里物品栏的交互演变，或者早期 JRPG 中对话框的字体设计。这些题目听起来不大，但读完之后往往能让人对游戏设计产生新的视角。文章末尾通常会附上参考链接或资料来源，方便进一步查证——对于喜欢深挖的人来说，这是一个很友好的习惯。</p>
+
+        <h3>② 偶尔的「工具箱」式内容</h3>
+        <p>除了观点和考据，这里也会出现一些非常实用的内容：例如如何备份特定平台的存档、怎样在旧硬件上运行经典游戏、或者不同模拟器之间的设置差异。这类文章不渲染情绪，而是把步骤和注意事项写清楚，像一份经过测试的备忘录。很多回头客留言说，就是靠这些「冷知识」解决了一些实际的小麻烦。</p>
+
+        <h3>③ 保持距离的社区感</h3>
+        <p>站内没有明显的社交模块，也没有积分或排行榜。为数不多的互动体现在每篇文章底部的「读者笔记」区——有人补充自己的发现，有人纠正时间线，也有人只留下一句「终于找到这个考据了」。这种低压力、低噪音的交流方式，让关注成为一种更私人的行为。你可以随时进来阅读，然后离开，不必担心被打扰。</p>
+    </div>
+
+    <!-- 额外卡片：FAQ 摘要 / 常见想法 -->
+    <div class="card">
+        <h2>一些常见疑问</h2>
+        <ul>
+            <li><strong>内容多久更新一次？</strong> 没有固定时间表，但大致保持每周 1–2 篇的节奏，偶尔会有专题系列连续发布。</li>
+            <li><strong>文章可以转载或引用吗？</strong> 每篇文章底部都有明确的版权说明，大部分允许非商业引用，只需保留出处和链接。</li>
+            <li><strong>有没有邮件订阅或 RSS？</strong> 目前页面内没有明显的订阅入口，但可以通过收藏夹或书签自行跟进。</li>
+            <li><strong>适合完全不了解游戏的人看吗？</strong> 部分文章有一定背景门槛，但很多选题也会从基础概念讲起，不妨挑感兴趣的标题试着读读看。</li>
+        </ul>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #4f6178;">—— 更详细的信息请直接浏览 <a href="https://webportal-i-game.com.cn">爱游戏</a> 页面本身。</p>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-access">
+        <p>📖 一本持续更新的游戏笔记 · 欢迎再次回来</p>
+        <p style="font-size: 0.95rem;">如果你还没有收藏，现在就可以把 <a href="https://webportal-i-game.com.cn">爱游戏</a> 加入书签。<br>不必刻意记住，只要某个想翻翻游戏资料的下午，能想起这里就好。</p>
+        <div class="tiny-meta">
+            —— 杂志专题 · 从再次访问到持续关注 ——
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
